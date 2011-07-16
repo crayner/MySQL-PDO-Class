@@ -13,7 +13,7 @@ function microtime_float()
 
 $time_start = microtime_float();
 ini_set("log_errors", 1);  // 
-ini_set("display_errors", 1); // set to 0 in production site
+ini_set("display_errors", 0); // set to 0 in production site
 ini_set("error_log", "/path-to/php-error.log");
 
 

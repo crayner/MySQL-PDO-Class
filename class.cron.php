@@ -50,47 +50,46 @@ var $TestMode = false;
 /**
  * Cron Manager Constructor
  * @version 16th January 2009<br>
- * 16th January 2009: Inhibit loginf of CREATE TABLE queries.<br>
+ * 16th January 2009: Inhibit logging of CREATE TABLE queries.<br>
  * 6th November 2007: Added log of Cron Manager Initiation.
  * @since 26th December 2005
  * @return void
  */
- function CronManager() {
- 
-   		global $version;
+	function CronManager() {
+	
+		global $version;
 		if (TEST_MODE)
 			$this->TestMode =  true;
 		$this->LogCall('CronManager()');   
-   		if (@$version['class.cron.php'] == $this->version)
-   			return ;
-   		$version['class.cron.php'] = $this->version;
-   		$db = new mysql_record();
+		if (@$version['class.cron.php'] == $this->version)
+			return ;
+		$version['class.cron.php'] = $this->version;
+		$db = new mysql_record();
 		$db->DoNotLog[] = array();
 		$query = "CREATE TABLE IF NOT EXISTS `CronList` (
-    `id` int(11) unsigned zerofill NOT NULL auto_increment,
-    `url` varchar(100) NOT NULL default '',
-    `interval` int(11) NOT NULL default '0',
-    `measure` enum('Seconds','Minutes','Hours','Days','Weeks','Months','Years') NOT NULL default 'Seconds',
-    `CallNext` datetime default NULL,
-    `SSL` enum('Yes','No') NOT NULL default 'No',
-    `priority` int(2) NOT NULL default '10',
-    `repeat` enum('Yes','No') NOT NULL default 'Yes',
-     PRIMARY KEY  (`id`),
-     KEY `url` (`url`),
-     FULLTEXT KEY `url_2` (`url`)
-     ) TYPE=MyISAM COMMENT='CRON Table Used by library/CronTable.php and library/class.cron.php'";
-   		$db->ExecuteQuery($query);
+				`id` int(11) unsigned zerofill NOT NULL auto_increment,
+				`url` varchar(100) NOT NULL default '',
+				`interval` int(11) NOT NULL default '0',
+				`measure` enum('Seconds','Minutes','Hours','Days','Weeks','Months','Years') NOT NULL default 'Seconds',
+				`CallNext` datetime default NULL,
+				`SSL` enum('Yes','No') NOT NULL default 'No',
+				`priority` int(2) NOT NULL default '10',
+				`repeat` enum('Yes','No') NOT NULL default 'Yes',
+			PRIMARY KEY  (`id`),
+			KEY `url` (`url`),
+			FULLTEXT KEY `url_2` (`url`)
+			) TYPE=MyISAM COMMENT='CRON Table Used by library/CronTable.php and library/class.cron.php'";
+		$db->ExecuteQuery($query);
 		$db->DoNotLog[] = $query = "CREATE TABLE IF NOT EXISTS `CronLog` (
-    `id` INT( 11 ) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
-    `file` VARCHAR( 255 ) NULL ,
-    `ActionDate` DATETIME NULL ,
-	`comment` VARCHAR( 255 ) NULL ,
-    PRIMARY KEY ( `id` )
-    ) TYPE = MYISAM ";
-   		$db->ExecuteQuery($query);
-	
+				`id` INT( 11 ) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
+				`file` VARCHAR( 255 ) NULL ,
+				`ActionDate` DATETIME NULL ,
+				`comment` VARCHAR( 255 ) NULL ,
+			PRIMARY KEY ( `id` )
+			) TYPE = MYISAM ";
+		$db->ExecuteQuery($query);
 		unset($db);
- 	}
+	}
 /**
  * Record a Completed CRON Job
  *
