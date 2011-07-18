@@ -1,0 +1,2168 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class mysql_PDO</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class mysql_PDO</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">MySQL Database Record Manipulator in PHP using PDO</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Craig Rayner</li>
+				<li><span class="field">version:</span> 15th July 2011</li>
+				<li><span class="field">copyright:</span> Craig Rayner 2009-2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_class.PDO-MySQL.php.html">/class.PDO-MySQL.php</a> (line <span class="field"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a50">50</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																																																																																																																																																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$AffectedRows" title="details" class="var-name">$AffectedRows</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$DataBaseIndex" title="details" class="var-name">$DataBaseIndex</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$DataBaseName" title="details" class="var-name">$DataBaseName</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$DoNotLog" title="details" class="var-name">$DoNotLog</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$errno" title="details" class="var-name">$errno</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$error" title="details" class="var-name">$error</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$fetch" title="details" class="var-name">$fetch</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$field" title="details" class="var-name">$field</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$FieldData" title="details" class="var-name">$FieldData</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$FunctionCalled" title="details" class="var-name">$FunctionCalled</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$identifier" title="details" class="var-name">$identifier</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$LastQuery" title="details" class="var-name">$LastQuery</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$lastrow" title="details" class="var-name">$lastrow</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$next_id" title="details" class="var-name">$next_id</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$ok" title="details" class="var-name">$ok</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">object</span>
+					<a href="#$PDO" title="details" class="var-name">$PDO</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$PDOErrno" title="details" class="var-name">$PDOErrno</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$PurgeChangesDone" title="details" class="var-name">$PurgeChangesDone</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$query" title="details" class="var-name">$query</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">object</span>
+					<a href="#$result" title="details" class="var-name">$result</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$table" title="details" class="var-name">$table</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$TestMode" title="details" class="var-name">$TestMode</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$thisrow" title="details" class="var-name">$thisrow</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$version" title="details" class="var-name">$version</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																																																						
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#mysql_PDO" title="details" class="method-name">mysql_PDO</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$database</span> = <span class="var-default">''</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#AddTablePrefix" title="details" class="method-name">AddTablePrefix</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#BuildJoinString" title="details" class="method-name">BuildJoinString</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#BuildOrderByString" title="details" class="method-name">BuildOrderByString</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#BuildSelectQuery" title="details" class="method-name">BuildSelectQuery</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#BuildWhereString" title="details" class="method-name">BuildWhereString</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ClearError" title="details" class="method-name">ClearError</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ClearField" title="details" class="method-name">ClearField</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ClearQuery" title="details" class="method-name">ClearQuery</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ClosePreparedQuery" title="details" class="method-name">ClosePreparedQuery</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#debug" title="details" class="method-name">debug</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$stop</span> = <span class="var-default">true</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#DeleteRecord" title="details" class="method-name">DeleteRecord</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#DeleteSeries" title="details" class="method-name">DeleteSeries</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$UseQuery</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#EscapePost" title="details" class="method-name">EscapePost</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$post</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#ExecutePreparedQuery" title="details" class="method-name">ExecutePreparedQuery</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#ExecuteQuery" title="details" class="method-name">ExecuteQuery</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">'NO QUERY'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#ExtractENUMArray" title="details" class="method-name">ExtractENUMArray</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$field</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sort</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#InitiateQuery" title="details" class="method-name">InitiateQuery</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$thisrow</span> = <span class="var-default">-1</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#InsertRecord" title="details" class="method-name">InsertRecord</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#LoadArray" title="details" class="method-name">LoadArray</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#LoadArrayFromQuery" title="details" class="method-name">LoadArrayFromQuery</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#LoadRecord" title="details" class="method-name">LoadRecord</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#LogCall" title="details" class="method-name">LogCall</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#NextIdentifier" title="details" class="method-name">NextIdentifier</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span> = <span class="var-default">&quot;NO TABLE&quot;</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#OpenDatabase" title="details" class="method-name">OpenDatabase</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#OptimiseTables" title="details" class="method-name">OptimiseTables</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#PrepareQuery" title="details" class="method-name">PrepareQuery</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">&quot;NO QUERY&quot;</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#PurgeChanges" title="details" class="method-name">PurgeChanges</a>
+											([<span class="var-type">date</span>&nbsp;<span class="var-name">$date</span> = <span class="var-default">'NO DATE'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ResetSQL" title="details" class="method-name">ResetSQL</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#RetrieveRow" title="details" class="method-name">RetrieveRow</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$inc</span> = <span class="var-default">false</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$thisrow</span> = <span class="var-default">-1</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SaveChanges" title="details" class="method-name">SaveChanges</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#SaveRecord" title="details" class="method-name">SaveRecord</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span> = <span class="var-default">&quot;NO TABLE&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span> = <span class="var-default">'Not Set'</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">2</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#SelectQuery" title="details" class="method-name">SelectQuery</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">&quot;NO QUERY&quot;</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$thisrow</span> = <span class="var-default">-1</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetError" title="details" class="method-name">SetError</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$error</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$errno</span> = <span class="var-default">'9998'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#TestforTableNames" title="details" class="method-name">TestforTableNames</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#UpdateRecord" title="details" class="method-name">UpdateRecord</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#UpDateSeries" title="details" class="method-name">UpDateSeries</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$UseQuery</span> = <span class="var-default">false</span>])
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$AffectedRows" id="$AffectedRows"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$AffectedRows</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a128">128</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Number of Rows Altered by last MySQL Access</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$DataBaseIndex" id="$DataBaseIndex"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$DataBaseIndex</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a68">68</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Data Base Index</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$DataBaseName" id="$DataBaseName"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$DataBaseName</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a62">62</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Data Base Name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$DoNotLog" id="$DoNotLog"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$DoNotLog</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a140">140</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">List of Log Exceptions</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$errno" id="$errno"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$errno</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a92">92</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Last MySQL Error Number</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$error" id="$error"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$error</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a86">86</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Last MySQL Error</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$fetch" id="$fetch"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$fetch</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a188">188</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Data retireved from Select</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$field" id="$field"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$field</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a182">182</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Field Data from table</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$FieldData" id="$FieldData"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$FieldData</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a194">194</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Field Information</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$FunctionCalled" id="$FunctionCalled"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$FunctionCalled</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a80">80</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Which Method was last called</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$identifier" id="$identifier"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$identifier</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a176">176</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Identifier Name (Unique) in a Table</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$LastQuery" id="$LastQuery"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$LastQuery</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a146">146</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Last Query</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$lastrow" id="$lastrow"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$lastrow</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a116">116</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Total number of rows in the result set.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$next_id" id="$next_id"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$next_id</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a122">122</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Next available AUTOINCREMENT</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$ok" id="$ok"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$ok</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a104">104</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Last MySQL Access Status</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$PDO" id="$PDO"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">object</span>
+			<span class="var-name">$PDO</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a152">152</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">MySQLi</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$PDOErrno" id="$PDOErrno"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$PDOErrno</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a98">98</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Last MySQL Error Number</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$PurgeChangesDone" id="$PurgeChangesDone"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$PurgeChangesDone</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a134">134</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Has Purge Changes been done</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$query" id="$query"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$query</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a164">164</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Query to be Executed or Accessed.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$result" id="$result"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">object</span>
+			<span class="var-name">$result</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a158">158</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Result Object for Queries Executed</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$table" id="$table"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$table</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a170">170</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Table Name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$TestMode" id="$TestMode"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$TestMode</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a74">74</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Site is under Development</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$thisrow" id="$thisrow"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$thisrow</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a110">110</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pointer to the Current (or Next) Row</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$version" id="$version"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$version</span>
+			 = <span class="var-default"> '15th July 2011'</span>			(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a56">56</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Version: Current Class Version Number</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodmysql_PDO" id="mysql_PDO"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor mysql_PDO</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a203">203</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">PDO Database Access Constructor</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			mysql_PDO
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$database</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$database</span><span class="var-description">: The database name to set for this session.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodAddTablePrefix" id="AddTablePrefix"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">AddTablePrefix</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a588">588</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add Table Prefix</p>
+<p class="description"><p>Test for and if necessary add the table prefix to the tablename.<br />  The Prefix is defined in the config file as PRE_NAME</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The corrected table name.</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			AddTablePrefix
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: The table name to test and add the prefix too.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodBuildJoinString" id="BuildJoinString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">BuildJoinString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1644">1644</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Build Join String</p>
+<p class="description"><p>Requires the following format in the array $this-&gt;Join keys.<br />  The final character in the key must be one of the following letters<br />  Y = The type of join:  LEFT, RIGHT, CENTER<br />  F = Comma separated field list for join testing<br />  T = Table Name to join too.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The Join clause of an SQL query.</li>
+				<li><span class="field">version:</span> 8th July 2009</li>
+				<li><span class="field">since:</span> 8th July 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			BuildJoinString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodBuildOrderByString" id="BuildOrderByString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">BuildOrderByString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a661">661</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Build OrderBy String</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The ORDERBY clause of an SQL query.</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			BuildOrderByString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodBuildSelectQuery" id="BuildSelectQuery"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">BuildSelectQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a511">511</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Build the Select Query</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The Query built from the details given.</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			BuildSelectQuery
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodBuildWhereString" id="BuildWhereString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">BuildWhereString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a611">611</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Build Where String</p>
+<p class="description"><p>Rules for the Where string array.<br />  Each array key must end with one of the following characters:<br />  F = Field Name<br />  V = Value to test for in the field<br />  C = Comparitor between the field and value.  (=, !=, &gt;, &lt;=, LIKE, etc)<br />  L = Linking Structure such as (, ), AND, OR, etc</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The WHERE clause of an SQL query.</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			BuildWhereString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodClearError" id="ClearError"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClearError</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a358">358</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clear the Error Details</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 29th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ClearError
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodClearField" id="ClearField"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClearField</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a270">270</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clear Fields and Query</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ClearField
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodClearQuery" id="ClearQuery"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClearQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1070">1070</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clear Query Properties</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 27th June 2009</li>
+				<li><span class="field">since:</span> 27th June 2009</li>
+				<li><span class="field">public:</span> </li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ClearQuery
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodClosePreparedQuery" id="ClosePreparedQuery"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClosePreparedQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1429">1429</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Close Prepared Query</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 29th June 2009</li>
+				<li><span class="field">since:</span> 29th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ClosePreparedQuery
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methoddebug" id="debug"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">debug</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a729">729</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Debug</p>
+<p class="description"><p>Prints the entire object to the browser.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			debug
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$stop</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$stop</span><span class="var-description">: Set to false so that program execution does not stop.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodDeleteRecord" id="DeleteRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">DeleteRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1226">1226</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete Record</p>
+<p class="description"><p>Delete a record form a record set.<br />  Requires the following variables to be set:<br />  field[$this-&gt;identifier] = the unique identifer of the record to set<br />  table name and table identitier<br />  Generates a copy of the data to the changes table before the record is deleted.<br />  <strong>DO NOT USE THIS METHOD TO DELETE RECORDS FROM THE 'changes' TABLE</strong></p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 17th August 2010</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			DeleteRecord
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodDeleteSeries" id="DeleteSeries"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">DeleteSeries</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1491">1491</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete Series</p>
+<p class="description"><p>Delete a series of records from a table.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The number of records deleted.</li>
+				<li><span class="field">version:</span> 20th July 2009</li>
+				<li><span class="field">since:</span> 29th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			DeleteSeries
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$UseQuery</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: an expression used to match records in MySQL to be deleted.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$UseQuery</span><span class="var-description">: Use the internal query to seed the series.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodEscapePost" id="EscapePost"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">EscapePost</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1041">1041</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Escape Data</p>
+<p class="description"><p>Escape the array for inclusion in a query.<br />  Simulates magic quotes being ON, regardless of magic_quotes_gpc status</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th May 2011</li>
+				<li><span class="field">since:</span> 27th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			EscapePost
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$post</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$post</span><span class="var-description">: The data to be processed</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodExecutePreparedQuery" id="ExecutePreparedQuery"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ExecutePreparedQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1366">1366</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute Prepared Query</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Table record Set.</li>
+				<li><span class="field">version:</span> 29th June 2009</li>
+				<li><span class="field">since:</span> 29th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			ExecutePreparedQuery
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: Prepared Query Values.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodExecuteQuery" id="ExecuteQuery"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ExecuteQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a287">287</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute Query</p>
+<p class="description"><p>All hell breaks loose as this will execute ANY query<br />  It does not record its changes at all.  <strong>Still in development.</strong><br />  sets ok, error, errno</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Number of affected rows.</li>
+				<li><span class="field">version:</span> 5th July 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			ExecuteQuery
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">'NO QUERY'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$query</span><span class="var-description">: New query into object, defaults to object-&gt;query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodExtractENUMArray" id="ExtractENUMArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ExtractENUMArray</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a796">796</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Extract ENUM array</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			ExtractENUMArray
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$field</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sort</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: table</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: field</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$sort</span><span class="var-description">: Alpha-Numeric Sort</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodInitiateQuery" id="InitiateQuery"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">InitiateQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a416">416</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initiate Query</p>
+<p class="description"><p>Same as select_query except this defaults the pointer to the first record of the record set.<br />  Sets the same variables as select_query, as this function calls select query after setting the query and thisrow = 0.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Table Fields</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			InitiateQuery
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$thisrow</span> = <span class="var-default">-1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$text</span><span class="var-description">: The new query, defaults to object-&gt;query</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$thisrow</span><span class="var-description">: The pointer value should you wish to retrieve, defaults to first record.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodInsertRecord" id="InsertRecord"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">InsertRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1139">1139</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Insert Record</p>
+<p class="description"><p>Insert a new record into a MySQL table.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 5th July 2009</li>
+				<li><span class="field">private:</span> </li>
+				<li><span class="field">since:</span> 27th June 2009</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			InsertRecord
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodLoadArray" id="LoadArray"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">LoadArray</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1109">1109</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load Array</p>
+<p class="description"><p>Load an array with the input of a query, using the field identified.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			LoadArray
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: Identified field</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodLoadArrayFromQuery" id="LoadArrayFromQuery"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">LoadArrayFromQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1093">1093</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load Array from Query</p>
+<p class="description"><p>Seed the LoadArray method with a query and identifying field.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 27th June 2009</li>
+				<li><span class="field">since:</span> 27th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			LoadArrayFromQuery
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: The identifying field for the array</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$query</span><span class="var-description">: A new query, defaults to $this-&gt;query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodLoadRecord" id="LoadRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">LoadRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1707">1707</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load a Record</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The record from the table.</li>
+				<li><span class="field">version:</span> 15th July 2011</li>
+				<li><span class="field">since:</span> 15th July 2011</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			LoadRecord
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: Table Name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Table Identifier (MUST BE UNIQUE)</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$id</span><span class="var-description">: The value of the table identifier to return.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodLogCall" id="LogCall"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">LogCall</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a253">253</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Log of the Methods Called.</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			LogCall
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span><span class="var-description">: Method Name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodNextIdentifier" id="NextIdentifier"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">NextIdentifier</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1291">1291</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Next Identifier</p>
+<p class="description"><p>Sets the next_id variable to reflect the new unique record number of table.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The Next Identifier</li>
+				<li><span class="field">version:</span> 27th June 2009</li>
+				<li><span class="field">since:</span> 27th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			NextIdentifier
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span> = <span class="var-default">&quot;NO TABLE&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: The table name can be past to the function, or defaults to the existing object-&gt;table</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodOpenDatabase" id="OpenDatabase"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">OpenDatabase</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a325">325</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Open Database</p>
+<p class="description"><p>Change the following GLOBAL variables to your MySQL requirements with the config data<br />  (config data kept in a different file for security reasons.)<br />  MYSQL_HOST<br />  MYSQL_USER<br />  MYSQL_PASS<br />  MYSQL_DB</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 30th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			OpenDatabase
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodOptimiseTables" id="OptimiseTables"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">OptimiseTables</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1615">1615</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optimise Tables</p>
+<p class="description"><p>Optimise the tables in this database.<br />  An ideal candidate for a CRON job on a weekly basis.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 6th July 2009</li>
+				<li><span class="field">since:</span> 6th July 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			OptimiseTables
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodPrepareQuery" id="PrepareQuery"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">PrepareQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1331">1331</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prepare Query</p>
+<p class="description"><p>Initiates a query and returns the row indicated by thisrow<br />  <br />  sets the field array with the results (slashes striped from field) or<br />  sets error / errno with the problem.<br />  sets ok to indicate success<br />  sets query, thisrow, lastrow, result</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			PrepareQuery
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">&quot;NO QUERY&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$query</span><span class="var-description">: A new query to replace the internal query.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodPurgeChanges" id="PurgeChanges"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">PurgeChanges</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1532">1532</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Purge Changes</p>
+<p class="description"><p>Purge the changes table up till the date specified in the var $date<br />  This function can be called by a CRON program.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 6th July 2009</li>
+				<li><span class="field">since:</span> 6th July 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			PurgeChanges
+		</span>
+					([<span class="var-type">date</span>&nbsp;<span class="var-name">$date</span> = <span class="var-default">'NO DATE'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">date</span>
+				<span class="var-name">$date</span><span class="var-description">: The date in form 'Y-m-d' that records in changes older than $date are to be deleted.<br />  defaults to 60 days ago<br />  eg: $date = date(&quot;Y-m-d&quot;, strtotime('-60 Days'));</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodResetSQL" id="ResetSQL"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ResetSQL</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1686">1686</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reset SQL Variables</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 29th November 2009</li>
+				<li><span class="field">since:</span> 29th November 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ResetSQL
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodRetrieveRow" id="RetrieveRow"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">RetrieveRow</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a765">765</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve Row from an established query.</p>
+<p class="description"><p>sets the field array with the results (slashes striped from field) or<br />  sets error / errno with the problem.<br />  sets ok to indicate success<br />  sets thisrow<br />  Use this function after setting the query to retrieve successive row, without the overhead of  a new select query to the database, therefore speedier replies.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The fields called in the query.</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			RetrieveRow
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$inc</span> = <span class="var-default">false</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$thisrow</span> = <span class="var-default">-1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$inc</span><span class="var-description">: Increment thisrow after retrieving the row.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$thisrow</span><span class="var-description">: Increment thisrow after reading table row.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSaveChanges" id="SaveChanges"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SaveChanges</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a376">376</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Save Changes</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SaveChanges
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: The data that has changed.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: The type of data change.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSaveRecord" id="SaveRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SaveRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a823">823</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Save Record</p>
+<p class="description"><p>Inserts or Updates a record depending on how variables have been set.<br />  only updates if field[identifier] != 0<br />  if field[identifier] != 0 and table.identifier == 0 then AN insert is done.  Will set a field as `RecordChange` = date(Y-m-d H:i:s)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The pointer to the record saved.</li>
+				<li><span class="field">version:</span> 17th February 2010</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			SaveRecord
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span> = <span class="var-default">&quot;NO TABLE&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span> = <span class="var-default">'Not Set'</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">2</span><span class="var-description">: Adds fields to array to be set to NULL if field value is EMPTY.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: New table name, if not set used object table name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: New Identifier with the table name, or uses object idenetifier name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSelectQuery" id="SelectQuery"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SelectQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a442">442</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Select Query</p>
+<p class="description"><p>Initiates a query and returns the row indicated by thisrow<br />  <br />  sets the field array with the results (slashes striped from field) or<br />  sets error / errno with the problem.<br />  sets ok to indicate success<br />  sets query, thisrow, lastrow, result</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The table fields</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			SelectQuery
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span> = <span class="var-default">&quot;NO QUERY&quot;</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$thisrow</span> = <span class="var-default">-1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$query</span><span class="var-description">: A new query to replace the internal query.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$thisrow</span><span class="var-description">: the pointer to the row to retrieve.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetError" id="SetError"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetError</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a692">692</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the Error Details</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 14th July 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetError
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$error</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$errno</span> = <span class="var-default">'9998'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$error</span><span class="var-description">: Error Description</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$errno</span><span class="var-description">: Error Number</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodTestforTableNames" id="TestforTableNames"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">TestforTableNames</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a558">558</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test for Table Names</p>
+<p class="description"><p>Test for Table Names on the front of Field Names and add prefix if necessary.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The modified field name.</li>
+				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			TestforTableNames
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: The field name under test.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodUpdateRecord" id="UpdateRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">UpdateRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a905">905</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Update Record</p>
+<p class="description"><p>Change a stored record in a MySQL table.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 15th July 2011<br />  3rd July 2009: Automated detection of field that can be set to NULL.</li>
+				<li><span class="field">private:</span> </li>
+				<li><span class="field">since:</span> 26th June 2009</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			UpdateRecord
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodUpDateSeries" id="UpDateSeries"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">UpDateSeries</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1448">1448</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Update Series</p>
+<p class="description"><p>Update a series of records from a table.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The number of records up-dated</li>
+				<li><span class="field">version:</span> 29th June 2009<br /></li>
+				<li><span class="field">since:</span> 29th June 2009</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			UpDateSeries
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$UseQuery</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: an expression used to match records in MySQL to be deleted.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$fields</span><span class="var-description">: Field key as field name, value to be added to the field.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$UseQuery</span><span class="var-description">: Use the internal query to seed the series.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 18 Jul 2011 13:53:47 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
