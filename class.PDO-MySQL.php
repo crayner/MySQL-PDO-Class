@@ -3,7 +3,7 @@
   * MySQL Class File
   * @package craig
   *
-  * @version 15th July 2011
+  * @version 30th August 2011
   * @copyright Craig Rayner 2009-2009<br />
   *  Information Record Sysem for Registered Training Organisation: Australia.<br />
   *  Copyright (C) 2004-2011  Craig A. Rayner<br />
@@ -29,7 +29,7 @@
   * @since 26th June 2009
   * @package craig
   *
-  * @version 15th July 2011
+  * @version 30th August 2011
   *
     Information Record Sysem for Registered Training Organisation: Australia.
     Copyright (C) 2004-2011  Craig A. Rayner
@@ -53,7 +53,7 @@ class mysql_PDO {
   * @access public
   * @var string
   */
-	var $version = '15th July 2011';
+	var $version = '30th August 2011';
 /**
   * Data Base Name
   * @access public
@@ -1522,10 +1522,10 @@ class mysql_PDO {
   *
   * Purge the changes table up till the date specified in the var $date<br>
   * This function can be called by a CRON program.
-  * @version 6th July 2009
+  * @version 30th August 2011
   * @since 6th July 2009
-  * @param date $date The date in form 'Y-m-d' that records in changes older than $date are to be deleted.<br>
-  * defaults to 60 days ago<br>
+  * @param date $date The date in form 'Y-m-d' that records in changes older than $date are to be deleted.<br />
+  * defaults to 60 days ago<br />
   * eg: $date = date("Y-m-d", strtotime('-60 Days')); 
   * @return void
   */
@@ -1601,6 +1601,7 @@ class mysql_PDO {
 		}
 		closedir($f);
 		$this->OptimiseTables();
+		$this->CollationManagement();
 		return ;
  	}
 /**
@@ -1708,6 +1709,48 @@ class mysql_PDO {
 	
 		$this->LogCall('LoadRecord($table = '.strval($table).', $identifier = '.strval($identifier).', $id = '.strval($id).')');
 		return $this->InitiateQuery("SELECT * FROM `".$table."` WHERE `".$identifier."` = '".$id."'");
+	}
+/**
+  * Collation Management
+  *
+  * Change database, tables and fields to a standard collation and character set.<br />
+  * Default is CHARACTER SET utf8 COLLATE utf8_bin 
+  * @version 30th August 2011
+  * @since 30th August 2011
+  * @param string Chanarter Set
+  * @param string Collate
+  * @return void
+  */
+  	function CollationManagement($CharacterSet = 'utf8', $Collate = 'utf8_bin'){
+	
+		$this->LogCall("CollationManagement($CharacterSet = '".strval($CharacterSet)."', $Collate = '".strval($Collate)."')");
+		$x = 0;
+		$this->InitiateQuery("SHOW TABLES");
+		while($this->thisrow < $this->lastrow){
+			$row = $this->RetrieveRow(true);
+			$key = key($row);
+			$table[$x++] = $row[$key];
+		}
+		$this->ExecuteQuery("ALTER DATABASE `".MYSQL_DB."` CHARACTER SET ".$CharacterSet." COLLATE ".$Collate);
+		foreach($table as $w){
+			$this->ExecuteQuery("ALTER TABLE `".$w."` DEFAULT CHARACTER SET ".$CharacterSet." COLLATE ".$Collate);
+			$row = $this->LoadArrayFromQuery('Field', "SHOW FULL COLUMNS FROM `".$w."`");
+			foreach($row as $e=>$r){
+				if (strlen($r['Collation']) > 0) {
+					$query = "ALTER TABLE `".$w."` CHANGE `".$e."` `".$e."` ".$r['Type']." CHARACTER SET ".$CharacterSet." COLLATE ".$Collate." ";
+					if ($r['Null'] == 'No') {
+						$query .= "NOT NULL ";
+					} else {
+						$query .= 'NULL ';
+					}
+					if (strlen($r['Default']) > 0) {
+						$query .= "DEFAULT '".$r['Default']."' ";
+					}
+					$this->ExecuteQuery($query);
+				}
+			}
+		}
+		return ;
 	}
 } 
 ?>
