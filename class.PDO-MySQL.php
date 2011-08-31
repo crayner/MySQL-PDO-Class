@@ -3,7 +3,7 @@
   * MySQL Class File
   * @package craig
   *
-  * @version 30th August 2011
+  * @version 31st August 2011
   * @copyright Craig Rayner 2009-2009<br />
   *  Information Record Sysem for Registered Training Organisation: Australia.<br />
   *  Copyright (C) 2004-2011  Craig A. Rayner<br />
@@ -29,7 +29,7 @@
   * @since 26th June 2009
   * @package craig
   *
-  * @version 30th August 2011
+  * @version 31st August 2011
   *
     Information Record Sysem for Registered Training Organisation: Australia.
     Copyright (C) 2004-2011  Craig A. Rayner
@@ -53,7 +53,7 @@ class mysql_PDO {
   * @access public
   * @var string
   */
-	var $version = '30th August 2011';
+	var $version = '31st August 2011';
 /**
   * Data Base Name
   * @access public
@@ -193,6 +193,18 @@ class mysql_PDO {
   */
 	var $FieldData;
 /**
+  * Character Set
+  * @access public
+  * @var string
+  */
+	var $CharacterSet = 'utf8'; 
+/**
+  * Collate
+  * @access public
+  * @var string
+  */
+	var $Collate = 'utf8_bin';
+/**
   * PDO Database Access Constructor
   * 
   * @version 26th June 2009
@@ -209,6 +221,12 @@ class mysql_PDO {
    		if (TEST_MODE) {
      		$this->TestMode = true;
    		}
+		if (defined("COLLATE")) {
+			$this->Collate = COLLATE;
+		}
+		if (defined("CHARACTERSET")) {
+			$this->CharacterSet = CHARACTERSET;
+		}
 		$this->LogCall('mysql_record($database = '.strval($database).')');
    		if (@$version['class.PDO-MySQL.php'] == $this->version) 
 			return;
@@ -276,8 +294,8 @@ class mysql_PDO {
 /**
   * Execute Query
   *
-  * All hell breaks loose as this will execute ANY query<br>
-  * It does not record its changes at all.  <b>Still in development.</b><br>
+  * All hell breaks loose as this will execute ANY query<br />
+  * It does not record its changes at all.  <b>Still in development.</b><br />
   * sets ok, error, errno
   * @version 5th July 2009
   * @since 26th June 2009
@@ -310,15 +328,15 @@ class mysql_PDO {
 /**
   * Open Database
   *
-  * Change the following GLOBAL variables to your MySQL requirements with the config data<br>
-  * (config data kept in a different file for security reasons.)<br>
-  * MYSQL_HOST<br>
-  * MYSQL_USER<br>
-  * MYSQL_PASS<br>
+  * Change the following GLOBAL variables to your MySQL requirements with the config data<br />
+  * (config data kept in a different file for security reasons.)<br />
+  * MYSQL_HOST<br />
+  * MYSQL_USER<br />
+  * MYSQL_PASS<br />
   * MYSQL_DB
   *
   * @access public
-  * @version 30th June 2009
+  * @version 31st August 2011
   * @since 26th June 2009
   * @return void
   */
@@ -340,7 +358,7 @@ class mysql_PDO {
 				'mysql:host='.$HostName[$this->DataBaseIndex].';dbname='.$this->DataBaseName,
 				$UserName[$this->DataBaseIndex],
 				$PassWord[$this->DataBaseIndex],
-				array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_PERSISTENT => true)
+				array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES ".$this->CharacterSet, PDO::ATTR_PERSISTENT => true)
 			); 
 		} catch (PDOException $e){
 			$this->SetError("Error!: " . $e->getMessage());
@@ -367,13 +385,15 @@ class mysql_PDO {
 /** 
   * Save Changes
   *
+  * Saves the changes of an insert or update query into the changes table.
   * @version 26th June 2009
   * @since 26th June 2009
+  * @private
   * @param string The data that has changed.
   * @param string The type of data change.
   * @return void
   */
-	function SaveChanges($data, $type){
+	private function SaveChanges($data, $type){
  
 		$this->LogCall('SaveChanges($data = '.strval($data).', $type = '.strval($type).')');
 		if ($handle = @gzopen(MYSQL_LOGPATH.'sql'.date('Y-m-d').'.log.gz', 'a9')) {
@@ -405,7 +425,7 @@ class mysql_PDO {
 /**
   * Initiate Query
   *
-  * Same as select_query except this defaults the pointer to the first record of the record set.<br>
+  * Same as select_query except this defaults the pointer to the first record of the record set.<br />
   * Sets the same variables as select_query, as this function calls select query after setting the query and thisrow = 0.
   * @version 26th June 2009
   * @since 26th June 2009
@@ -427,11 +447,11 @@ class mysql_PDO {
 /**
   * Select Query
   *
-  * Initiates a query and returns the row indicated by thisrow<br>
-  * <br>
-  * sets the field array with the results (slashes striped from field) or<br>
-  * sets error / errno with the problem.<br>
-  * sets ok to indicate success<br>
+  * Initiates a query and returns the row indicated by thisrow<br />
+  * <br />
+  * sets the field array with the results (slashes striped from field) or<br />
+  * sets error / errno with the problem.<br />
+  * sets ok to indicate success<br />
   * sets query, thisrow, lastrow, result
   * @version 26th June 2009
   * @since 26th June 2009
@@ -577,7 +597,7 @@ class mysql_PDO {
 /** 
   * Add Table Prefix
   *
-  * Test for and if necessary add the table prefix to the tablename.<br>
+  * Test for and if necessary add the table prefix to the tablename.<br />
   * The Prefix is defined in the config file as PRE_NAME
   *
   * @version 26th June 2009
@@ -598,11 +618,11 @@ class mysql_PDO {
 /**
   * Build Where String
   *
-  * Rules for the Where string array.<br>
-  * Each array key must end with one of the following characters:<br>
-  * F = Field Name<br>
-  * V = Value to test for in the field<br>
-  * C = Comparitor between the field and value.  (=, !=, >, <=, LIKE, etc)<br>
+  * Rules for the Where string array.<br />
+  * Each array key must end with one of the following characters:<br />
+  * F = Field Name<br />
+  * V = Value to test for in the field<br />
+  * C = Comparitor between the field and value.  (=, !=, >, <=, LIKE, etc)<br />
   * L = Linking Structure such as (, ), AND, OR, etc
   * @version 26th June 2009
   * @since 26th June 2009
@@ -697,7 +717,7 @@ class mysql_PDO {
 			if (is_array($this->PDO->errorInfo())) {
 				$x = $this->PDO->errorInfo();
 				$this->errno = intval($x[1]);
-				$this->error = $error .'<br>'.strval($x[2]);
+				$this->error = $error .'<br />'.strval($x[2]);
 				$this->PDOErrno = intval($x[0]);
 			} else {
 				$this->error = $error;
@@ -750,10 +770,10 @@ class mysql_PDO {
 /**
   * Retrieve Row from an established query.
   *
-  * sets the field array with the results (slashes striped from field) or<br>
-  * sets error / errno with the problem.<br>
-  * sets ok to indicate success<br>
-  * sets thisrow<br>
+  * sets the field array with the results (slashes striped from field) or<br />
+  * sets error / errno with the problem.<br />
+  * sets ok to indicate success<br />
+  * sets thisrow<br />
   * Use this function after setting the query to retrieve successive row, without the overhead of 
   * a new select query to the database, therefore speedier replies.
   * @param boolean Increment thisrow after retrieving the row.
@@ -808,8 +828,8 @@ class mysql_PDO {
 /**
   * Save Record
   *
-  * Inserts or Updates a record depending on how variables have been set.<br>
-  * only updates if field[identifier] != 0<br>
+  * Inserts or Updates a record depending on how variables have been set.<br />
+  * only updates if field[identifier] != 0<br />
   * if field[identifier] != 0 and table.identifier == 0 then AN insert is done.
   * Will set a field as `RecordChange` = date(Y-m-d H:i:s)
   * @version 17th February 2010
@@ -896,7 +916,7 @@ class mysql_PDO {
   * Update Record
   *
   * Change a stored record in a MySQL table.
-  * @version 15th July 2011<br>
+  * @version 15th July 2011<br />
   * 3rd July 2009: Automated detection of field that can be set to NULL.
   * @since 26th June 2009
   * @private
@@ -1015,7 +1035,7 @@ class mysql_PDO {
 					unset($result);
        				$result = $this->PDO->exec($query);
        				if (intval($this->PDO->errorCode()) != 0) {
-	     				$this->SetError("Update Error: <br>Query = ".$query, $this->PDO->errorCode());
+	     				$this->SetError("Update Error: <br />Query = ".$query, $this->PDO->errorCode());
          				if ($this->TestMode) 
 							$this->debug();
        				} else {
@@ -1031,7 +1051,7 @@ class mysql_PDO {
 /** 
   * Escape Data
   * 
-  * Escape the array for inclusion in a query.<br>
+  * Escape the array for inclusion in a query.<br />
   * Simulates magic quotes being ON, regardless of magic_quotes_gpc status
   * @version 26th May 2011
   * @since 27th June 2009
@@ -1141,11 +1161,11 @@ class mysql_PDO {
 		$this->LogCall('InsertRecord()');
   		$this->functionCalled = 'Insert Record: ';
  		if (empty($this->identifier)) {
-   			$this->SetError("The Table Identifier has not been set in MySQL class.<br>");
+   			$this->SetError("The Table Identifier has not been set in MySQL class.<br />");
    			$this->debug();
  		}
  		if (empty($this->table)) {
-   			$this->SetError("The Table Name has not been set in MySQL_record.<br>");
+   			$this->SetError("The Table Name has not been set in MySQL_record.<br />");
    			$this->debug();
  		}
  		$this->OpenDatabase();
@@ -1193,7 +1213,7 @@ class mysql_PDO {
  		$this->LastQuery = $query = "INSERT INTO `".$this->table."` SET ".$insert;
  		$result = $this->PDO->exec($query);
  		if (intval($this->PDO->errorCode()) !== 0) {
-  			$this->SetError("Insert Failure: ".print_r($this->PDO->errorInfo(), true)."<br>".$query, $this->PDO->errorCode());
+  			$this->SetError("Insert Failure: ".print_r($this->PDO->errorInfo(), true)."<br />".$query, $this->PDO->errorCode());
   			if ($this->TestMode)
 				switch ($this->errno) { 
 					case 1062:
@@ -1213,11 +1233,11 @@ class mysql_PDO {
 /**
   * Delete Record
   *
-  * Delete a record form a record set.<br>
-  * Requires the following variables to be set:<br>
-  * field[$this->identifier] = the unique identifer of the record to set<br>
-  * table name and table identitier<br>
-  * Generates a copy of the data to the changes table before the record is deleted.<br>
+  * Delete a record from a record set.<br />
+  * Requires the following variables to be set:<br />
+  * field[$this->identifier] = the unique identifer of the record to set<br />
+  * table name and table identitier<br />
+  * Generates a copy of the data to the changes table before the record is deleted.<br />
   * <b>DO NOT USE THIS METHOD TO DELETE RECORDS FROM THE 'changes' TABLE</b>
   * @version 17th August 2010
   * @since 26th June 2009
@@ -1247,7 +1267,7 @@ class mysql_PDO {
    			WHERE `".$this->identifier."` = ".$this->field[$this->identifier];
    		$result = $this->PDO->query($query);
 		if (! is_object($result)) {
-			$this->SetError("Delete Record: ".print_r($this->PDO->errorInfo(), true)."<br>".$query, $this->PDO->errorCode());
+			$this->SetError("Delete Record: ".print_r($this->PDO->errorInfo(), true)."<br />".$query, $this->PDO->errorCode());
 			$this->debug();
 		}
 		$row = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -1268,7 +1288,7 @@ class mysql_PDO {
  		if ($this->ok) {
   			$result = $this->PDO->exec($query);
   			if (intval( $this->PDO->errorCode()) !== 0) {
-				$this->SetError("Delete Record: ".print_r($this->PDO->errorInfo(), true)."<br>".$query, $this->PDO->errorCode());
+				$this->SetError("Delete Record: ".print_r($this->PDO->errorInfo(), true)."<br />".$query, $this->PDO->errorCode());
 				$this->debug();
 			} else {
 				$this->SaveChanges('', 'Delete');
@@ -1285,7 +1305,7 @@ class mysql_PDO {
   * Sets the next_id variable to reflect the new unique record number of table.
   * @version 27th June 2009
   * @since 27th June 2009
-  * @param string $table The table name can be past to the function, or defaults to the existing object->table
+  * @param string The table name can be past to the function, or defaults to the existing object->table
   * @return integer  The Next Identifier
   */
 	function NextIdentifier($table = "NO TABLE") {
@@ -1296,7 +1316,7 @@ class mysql_PDO {
      		$this->table = $table;
    		} 
  		if (empty($this->table)) {
-			$this->SetError("The Table Name has not been set in MySQL_record.<br>");
+			$this->SetError("The Table Name has not been set in MySQL_record.<br />");
    			$this->debug();
  		}
   		$this->OpenDatabase();
@@ -1317,11 +1337,11 @@ class mysql_PDO {
 /**
   * Prepare Query
   *
-  * Initiates a query and returns the row indicated by thisrow<br>
-  * <br>
-  * sets the field array with the results (slashes striped from field) or<br>
-  * sets error / errno with the problem.<br>
-  * sets ok to indicate success<br>
+  * Initiates a query and returns the row indicated by thisrow<br />
+  * <br />
+  * sets the field array with the results (slashes striped from field) or<br />
+  * sets error / errno with the problem.<br />
+  * sets ok to indicate success<br />
   * sets query, thisrow, lastrow, result
   * @version 26th June 2009
   * @since 26th June 2009
@@ -1438,9 +1458,9 @@ class mysql_PDO {
   * Update Series
   *
   * Update a series of records from a table.
-  * @version 29th June 2009<br>
+  * @version 29th June 2009<br />
   * @since 29th June 2009
-  * @param string  an expression used to match records in MySQL to be deleted.
+  * @param string  an expression used to match records in MySQL to be updated.
   * @param array Field key as field name, value to be added to the field.
   * @param boolean Use the internal query to seed the series.
   * @return integer The number of records up-dated
@@ -1451,11 +1471,13 @@ class mysql_PDO {
   		$this->functionCalled = 'Delete Series: ';
    		if (empty($this->identifier)) {
   			$this->SetError("The Table Identifier has not been set in the MySQL class.");
-     		$this->debug();
+     		if ($this->TestMode) 
+				$this->debug();
    		}
    		if (empty($this->table)) {
      		$this->SetError("The Table Name has not been set in MySQL class.");
-     		$this->debug();
+     		if ($this->TestMode) 
+				$this->debug();
    		}
    		$query = 'SELECT * 
    			FROM `'.$this->table.'` 
@@ -1464,7 +1486,8 @@ class mysql_PDO {
 			$query = $this->query;
    		$this->InitiateQuery($query);
    		if (! $this->ok) {
-     		$this->debug();
+     		if ($this->TestMode) 
+				$this->debug();
    		}
    		$count = 0;
    		while ($this->thisrow < $this->lastrow) {
@@ -1494,11 +1517,13 @@ class mysql_PDO {
   		$this->functionCalled = 'Delete Series: ';
    		if (empty($this->identifier)) {
      		$this->SetError("The Table Identifier has not been set in MySQL_record.");
-     		$this->debug();
+     		if ($this->TestMode) 
+				$this->debug();
    		}
    		if (empty($this->table)) {
      		$this->SetError("The Table Name has not been set in MySQL_record.");
-     		$this->debug();
+     		if ($this->TestMode) 
+				$this->debug();
    		}
    		$query = 'SELECT * 
    			FROM `'.$this->table.'` 
@@ -1507,7 +1532,8 @@ class mysql_PDO {
 			$query = $this->query;
    		$this->InitiateQuery($query);
    		if (! $this->ok) {
-     		$this->debug();
+     		if ($this->TestMode) 
+				$this->debug();
    		}
    		$count = $this->lastrow;
    		while ($this->lastrow > 0) {
@@ -1520,7 +1546,7 @@ class mysql_PDO {
 /**
   * Purge Changes
   *
-  * Purge the changes table up till the date specified in the var $date<br>
+  * Purge the changes table up till the date specified in the var $date<br />
   * This function can be called by a CRON program.
   * @version 30th August 2011
   * @since 6th July 2009
@@ -1601,14 +1627,14 @@ class mysql_PDO {
 		}
 		closedir($f);
 		$this->OptimiseTables();
-		$this->CollationManagement();
 		return ;
  	}
 /**
   * Optimise Tables
   *
-  * Optimise the tables in this database.<br>
-  * An ideal candidate for a CRON job on a weekly basis.
+  * Optimise the tables in this database.<br />
+  * An ideal candidate for a CRON job on a weekly basis.<br />
+  * This method is called by the PurgeDatabase method.
   * @version 6th July 2009
   * @since 6th July 2009
   * @return void
@@ -1616,7 +1642,7 @@ class mysql_PDO {
  	function OptimiseTables() {
  
 		$this->LogCall('OptimiseTables()');
-  		$this->functionCalled = 'Optimize Tables: ';
+  		$this->functionCalled = 'Optimise Tables: ';
    		$this->InitiateQuery('SHOW TABLE STATUS');
    		$tables = array();
    		while ($this->thisrow < $this->lastrow) {
@@ -1633,10 +1659,10 @@ class mysql_PDO {
 /**
   * Build Join String
   *
-  * Requires the following format in the array $this->Join keys.<br>
-  * The final character in the key must be one of the following letters<br>
-  * Y = The type of join:  LEFT, RIGHT, CENTER<br>
-  * F = Comma separated field list for join testing<br>
+  * Requires the following format in the array $this->Join keys.<br />
+  * The final character in the key must be one of the following letters<br />
+  * Y = The type of join:  LEFT, RIGHT, CENTER<br />
+  * F = Comma separated field list for join testing<br />
   * T = Table Name to join too.
   * @version 8th July 2009
   * @since 8th July 2009
@@ -1675,11 +1701,12 @@ class mysql_PDO {
 		} else {
 			$jo .= "\n ";
 		}
-		return($jo);
+		return $jo;
 	}
 /**
   * Reset SQL Variables
   *
+  * Reset the PDO variables to NULL or Empty.
   * @version 29th November 2009
   * @since 29th November 2009
   * @return void
@@ -1714,16 +1741,15 @@ class mysql_PDO {
   * Collation Management
   *
   * Change database, tables and fields to a standard collation and character set.<br />
-  * Default is CHARACTER SET utf8 COLLATE utf8_bin 
-  * @version 30th August 2011
+  * Default is CHARACTER SET utf8 COLLATE utf8_bin <br />
+  * Define CHARACTERSET and/or COLLATE to change these values.
+  * @version 31st August 2011
   * @since 30th August 2011
-  * @param string Chanarter Set
-  * @param string Collate
   * @return void
   */
-  	function CollationManagement($CharacterSet = 'utf8', $Collate = 'utf8_bin'){
+  	function CollationManagement(){
 	
-		$this->LogCall("CollationManagement($CharacterSet = '".strval($CharacterSet)."', $Collate = '".strval($Collate)."')");
+		$this->LogCall("CollationManagement()");
 		$x = 0;
 		$this->InitiateQuery("SHOW TABLES");
 		while($this->thisrow < $this->lastrow){
@@ -1731,13 +1757,13 @@ class mysql_PDO {
 			$key = key($row);
 			$table[$x++] = $row[$key];
 		}
-		$this->ExecuteQuery("ALTER DATABASE `".MYSQL_DB."` CHARACTER SET ".$CharacterSet." COLLATE ".$Collate);
+		$this->ExecuteQuery("ALTER DATABASE `".$this->DataBaseName."` CHARACTER SET ".$this->CharacterSet." COLLATE ".$this->Collate);
 		foreach($table as $w){
-			$this->ExecuteQuery("ALTER TABLE `".$w."` DEFAULT CHARACTER SET ".$CharacterSet." COLLATE ".$Collate);
+			$this->ExecuteQuery("ALTER TABLE `".$w."` DEFAULT CHARACTER SET ".$this->CharacterSet." COLLATE ".$this->Collate);
 			$row = $this->LoadArrayFromQuery('Field', "SHOW FULL COLUMNS FROM `".$w."`");
 			foreach($row as $e=>$r){
 				if (strlen($r['Collation']) > 0) {
-					$query = "ALTER TABLE `".$w."` CHANGE `".$e."` `".$e."` ".$r['Type']." CHARACTER SET ".$CharacterSet." COLLATE ".$Collate." ";
+					$query = "ALTER TABLE `".$w."` CHANGE `".$e."` `".$e."` ".$r['Type']." CHARACTER SET ".$this->CharacterSet." COLLATE ".$this->Collate." ";
 					if ($r['Null'] == 'No') {
 						$query .= "NOT NULL ";
 					} else {
