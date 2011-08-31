@@ -101,7 +101,7 @@
 <p class="short-description">MySQL Database Record Manipulator in PHP using PDO</p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Craig Rayner</li>
-				<li><span class="field">version:</span> 30th August 2011</li>
+				<li><span class="field">version:</span> 31st August 2011</li>
 				<li><span class="field">copyright:</span> Craig Rayner 2009-2009</li>
 				<li><span class="field">since:</span> 26th June 2009</li>
 			</ul>
@@ -129,9 +129,17 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																																																																																																																																																																																																<div class="var-title">
+																																																																																																																																																																																																																																<div class="var-title">
 					<span class="var-type">integer</span>
 					<a href="#$AffectedRows" title="details" class="var-name">$AffectedRows</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$CharacterSet" title="details" class="var-name">$CharacterSet</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$Collate" title="details" class="var-name">$Collate</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">integer</span>
@@ -305,7 +313,7 @@
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#CollationManagement" title="details" class="method-name">CollationManagement</a>
-											([<span class="var-type">string</span>&nbsp;<span class="var-name">$CharacterSet</span> = <span class="var-default">'utf8'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$Collate</span> = <span class="var-default">'utf8_bin'</span>])
+										()
 									</div>
 														
 				<div class="method-definition">
@@ -500,6 +508,50 @@
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Number of Rows Altered by last MySQL Access</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$CharacterSet" id="$CharacterSet"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$CharacterSet</span>
+			 = <span class="var-default"> 'utf8'</span>			(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a200">200</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Character Set</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$Collate" id="$Collate"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$Collate</span>
+			 = <span class="var-default"> 'utf8_bin'</span>			(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a206">206</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Collate</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -1000,7 +1052,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$version</span>
-			 = <span class="var-default"> '30th August 2011'</span>			(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a56">56</a></span>)
+			 = <span class="var-default"> '31st August 2011'</span>			(line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a56">56</a></span>)
 		</span>
 	</div>
 
@@ -1034,7 +1086,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor mysql_PDO</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a203">203</a></span>)
+		<span class="method-title">Constructor mysql_PDO</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a215">215</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1064,7 +1116,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">AddTablePrefix</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a588">588</a></span>)
+		<span class="method-title">AddTablePrefix</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a608">608</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1096,7 +1148,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">BuildJoinString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1645">1645</a></span>)
+		<span class="method-title">BuildJoinString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1671">1671</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1123,7 +1175,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">BuildOrderByString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a661">661</a></span>)
+		<span class="method-title">BuildOrderByString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a681">681</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1149,7 +1201,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">BuildSelectQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a511">511</a></span>)
+		<span class="method-title">BuildSelectQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a531">531</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1175,7 +1227,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">BuildWhereString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a611">611</a></span>)
+		<span class="method-title">BuildWhereString</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a631">631</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1202,7 +1254,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClearError</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a358">358</a></span>)
+		<span class="method-title">ClearError</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a376">376</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1227,7 +1279,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClearField</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a270">270</a></span>)
+		<span class="method-title">ClearField</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a288">288</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1253,7 +1305,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClearQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1070">1070</a></span>)
+		<span class="method-title">ClearQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1090">1090</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1279,7 +1331,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClosePreparedQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1429">1429</a></span>)
+		<span class="method-title">ClosePreparedQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1449">1449</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1304,14 +1356,14 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">CollationManagement</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1724">1724</a></span>)
+		<span class="method-title">CollationManagement</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1750">1750</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Collation Management</p>
-<p class="description"><p>Change database, tables and fields to a standard collation and character set.<br />  Default is CHARACTER SET utf8 COLLATE utf8_bin</p></p>
+<p class="description"><p>Change database, tables and fields to a standard collation and character set.<br />  Default is CHARACTER SET utf8 COLLATE utf8_bin <br />  Define CHARACTERSET and/or COLLATE to change these values.</p></p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 30th August 2011</li>
+				<li><span class="field">version:</span> 31st August 2011</li>
 				<li><span class="field">since:</span> 30th August 2011</li>
 			</ul>
 	
@@ -1320,17 +1372,9 @@
 		<span class="method-name">
 			CollationManagement
 		</span>
-					([<span class="var-type">string</span>&nbsp;<span class="var-name">$CharacterSet</span> = <span class="var-default">'utf8'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$Collate</span> = <span class="var-default">'utf8_bin'</span>])
+				()
 			</div>
 	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$CharacterSet</span><span class="var-description">: Chanarter Set</span>			</li>
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$Collate</span><span class="var-description">: Collate</span>			</li>
-				</ul>
 		
 			
 	</div>
@@ -1338,7 +1382,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">debug</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a729">729</a></span>)
+		<span class="method-title">debug</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a749">749</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1369,12 +1413,12 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">DeleteRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1226">1226</a></span>)
+		<span class="method-title">DeleteRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1246">1246</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Delete Record</p>
-<p class="description"><p>Delete a record form a record set.<br />  Requires the following variables to be set:<br />  field[$this-&gt;identifier] = the unique identifer of the record to set<br />  table name and table identitier<br />  Generates a copy of the data to the changes table before the record is deleted.<br />  <strong>DO NOT USE THIS METHOD TO DELETE RECORDS FROM THE 'changes' TABLE</strong></p></p>
+<p class="description"><p>Delete a record from a record set.<br />  Requires the following variables to be set:<br />  field[$this-&gt;identifier] = the unique identifer of the record to set<br />  table name and table identitier<br />  Generates a copy of the data to the changes table before the record is deleted.<br />  <strong>DO NOT USE THIS METHOD TO DELETE RECORDS FROM THE 'changes' TABLE</strong></p></p>
 	<ul class="tags">
 				<li><span class="field">version:</span> 17th August 2010</li>
 				<li><span class="field">since:</span> 26th June 2009</li>
@@ -1395,7 +1439,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">DeleteSeries</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1491">1491</a></span>)
+		<span class="method-title">DeleteSeries</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1514">1514</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1430,7 +1474,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">EscapePost</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1041">1041</a></span>)
+		<span class="method-title">EscapePost</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1061">1061</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1461,7 +1505,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ExecutePreparedQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1366">1366</a></span>)
+		<span class="method-title">ExecutePreparedQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1386">1386</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1492,7 +1536,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ExecuteQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a287">287</a></span>)
+		<span class="method-title">ExecuteQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a305">305</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1524,7 +1568,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ExtractENUMArray</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a796">796</a></span>)
+		<span class="method-title">ExtractENUMArray</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a816">816</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1560,7 +1604,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">InitiateQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a416">416</a></span>)
+		<span class="method-title">InitiateQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a436">436</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1595,7 +1639,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">InsertRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1139">1139</a></span>)
+		<span class="method-title">InsertRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1159">1159</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1623,7 +1667,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">LoadArray</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1109">1109</a></span>)
+		<span class="method-title">LoadArray</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1129">1129</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1654,7 +1698,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">LoadArrayFromQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1093">1093</a></span>)
+		<span class="method-title">LoadArrayFromQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1113">1113</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1688,7 +1732,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">LoadRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1708">1708</a></span>)
+		<span class="method-title">LoadRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1735">1735</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1725,7 +1769,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">LogCall</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a253">253</a></span>)
+		<span class="method-title">LogCall</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a271">271</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1755,7 +1799,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">NextIdentifier</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1291">1291</a></span>)
+		<span class="method-title">NextIdentifier</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1311">1311</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1787,14 +1831,14 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">OpenDatabase</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a325">325</a></span>)
+		<span class="method-title">OpenDatabase</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a343">343</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Open Database</p>
 <p class="description"><p>Change the following GLOBAL variables to your MySQL requirements with the config data<br />  (config data kept in a different file for security reasons.)<br />  MYSQL_HOST<br />  MYSQL_USER<br />  MYSQL_PASS<br />  MYSQL_DB</p></p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 30th June 2009</li>
+				<li><span class="field">version:</span> 31st August 2011</li>
 				<li><span class="field">since:</span> 26th June 2009</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -1814,12 +1858,12 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">OptimiseTables</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1616">1616</a></span>)
+		<span class="method-title">OptimiseTables</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1642">1642</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Optimise Tables</p>
-<p class="description"><p>Optimise the tables in this database.<br />  An ideal candidate for a CRON job on a weekly basis.</p></p>
+<p class="description"><p>Optimise the tables in this database.<br />  An ideal candidate for a CRON job on a weekly basis.<br />  This method is called by the PurgeDatabase method.</p></p>
 	<ul class="tags">
 				<li><span class="field">version:</span> 6th July 2009</li>
 				<li><span class="field">since:</span> 6th July 2009</li>
@@ -1840,7 +1884,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">PrepareQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1331">1331</a></span>)
+		<span class="method-title">PrepareQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1351">1351</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1871,7 +1915,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">PurgeChanges</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1532">1532</a></span>)
+		<span class="method-title">PurgeChanges</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1558">1558</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1902,11 +1946,12 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ResetSQL</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1687">1687</a></span>)
+		<span class="method-title">ResetSQL</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1714">1714</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Reset SQL Variables</p>
+<p class="description"><p>Reset the PDO variables to NULL or Empty.</p></p>
 	<ul class="tags">
 				<li><span class="field">version:</span> 29th November 2009</li>
 				<li><span class="field">since:</span> 29th November 2009</li>
@@ -1927,7 +1972,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">RetrieveRow</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a765">765</a></span>)
+		<span class="method-title">RetrieveRow</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a785">785</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1962,14 +2007,17 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SaveChanges</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a376">376</a></span>)
+		<span class="method-title">SaveChanges</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a396">396</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Save Changes</p>
+<p class="description"><p>Saves the changes of an insert or update query into the changes table.</p></p>
 	<ul class="tags">
 				<li><span class="field">version:</span> 26th June 2009</li>
+				<li><span class="field">private:</span> </li>
 				<li><span class="field">since:</span> 26th June 2009</li>
+				<li><span class="field">access:</span> private</li>
 			</ul>
 	
 	<div class="method-signature">
@@ -1995,7 +2043,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SaveRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a823">823</a></span>)
+		<span class="method-title">SaveRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a843">843</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2034,7 +2082,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SelectQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a442">442</a></span>)
+		<span class="method-title">SelectQuery</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a462">462</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2069,7 +2117,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetError</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a692">692</a></span>)
+		<span class="method-title">SetError</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a712">712</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2102,7 +2150,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">TestforTableNames</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a558">558</a></span>)
+		<span class="method-title">TestforTableNames</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a578">578</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2134,7 +2182,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">UpdateRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a905">905</a></span>)
+		<span class="method-title">UpdateRecord</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a925">925</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2162,7 +2210,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">UpDateSeries</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1448">1448</a></span>)
+		<span class="method-title">UpDateSeries</span> (line <span class="line-number"><a href="../__filesource/fsource_craig__class.PDO-MySQL.php.html#a1468">1468</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2185,7 +2233,7 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$where</span><span class="var-description">: an expression used to match records in MySQL to be deleted.</span>			</li>
+				<span class="var-name">$where</span><span class="var-description">: an expression used to match records in MySQL to be updated.</span>			</li>
 					<li>
 				<span class="var-type">array</span>
 				<span class="var-name">$fields</span><span class="var-description">: Field key as field name, value to be added to the field.</span>			</li>
@@ -2202,7 +2250,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 31 Aug 2011 14:23:58 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 31 Aug 2011 15:23:52 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
