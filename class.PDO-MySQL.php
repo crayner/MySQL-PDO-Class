@@ -3,7 +3,7 @@
   * MySQL Class File
   * @package craig
   *
-  * @version 31st August 2011
+  * @version 3rd October 2011
   * @copyright Craig Rayner 2009-2009<br />
   *  Information Record Sysem for Registered Training Organisation: Australia.<br />
   *  Copyright (C) 2004-2011  Craig A. Rayner<br />
@@ -228,7 +228,7 @@ class mysql_PDO {
 			$this->CharacterSet = CHARACTERSET;
 		}
 		$this->LogCall('mysql_record($database = '.strval($database).')');
-   		if (@$version['class.PDO-MySQL.php'] == $this->version) 
+   		if (isset($version['class.PDO-MySQL.php'])) 
 			return;
    		$version['class.PDO-MySQL.php'] = $this->version;
 		$this->DoNotLog = array();
@@ -418,7 +418,7 @@ class mysql_PDO {
    				`tablename` ='".$this->table."', 
    				`tablekey` ='".$this->field[$this->identifier]."'";
    		$result = $this->PDO->query($change);
-		$reult = NULL;
+		$result = NULL;
 		unset($result);
 		return ;
 	}
@@ -514,7 +514,7 @@ class mysql_PDO {
 			$this->field = array();
 			$this->fetch = array();
 		}
-		if (! is_array(@$this->field))
+		if (! isset($this->field))
 			$this->field = array();
 		$this->result = NULL;
 		$this->PDO = NULL;
@@ -861,10 +861,12 @@ class mysql_PDO {
   		//Remove any invalid field from the list of fields.
   		$field = $this->field;
 		$col = array();
-  		$query = @$this->query;
+		if (isset($this->query))
+  			$query = $this->query;
   		$thisrow = $this->thisrow;
   		$lastrow = $this->lastrow;
-  		$result = @$this->result;
+  		if (isset($this->result))
+			$result = $this->result;
 		$fetch = $this->fetch;
   		$this->InitiateQuery('SHOW COLUMNS FROM `'.$this->table.'`');
 		$this->FieldDetails = array();
@@ -875,8 +877,9 @@ class mysql_PDO {
   		}
   		if (is_array($field)) {
     		foreach ($field as $q=>$w) {
-      			if (@$col[$q] != 'Valid') 
-					unset($field[$q]);
+				if (isset($col[$q]))
+					if ($col[$q] != 'Valid') 
+						unset($field[$q]);
     		}
   		}
   		if (is_array($field)) {
@@ -985,42 +988,44 @@ class mysql_PDO {
    			if ($this->ok) {
 				$update = '';
  				foreach($this->field as $key => $value) {
-					$e = explode('(', $this->FieldDetails[$key]['Type']);
-					switch ($e[0]){
-  						case 'int':
-							$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-							break;
-  						case 'tinyint':
-							$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-							break;
-  						case 'smallint':
-							$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-							break;
-  						case 'mediumint':
-							$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-							break;
-  						case 'bigint':
-							$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-							break;
-  						case 'bool':
-							$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-							break;
-  						case 'double':
-							$update .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
-							break;
-  						case 'float':
-							$update .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
-							break;
-  						case 'decimal':
-							$update .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
-							break;
-						default:
-							$x = mb_strlen(strval($value));
-							if($x == 0 AND $this->FieldDetails[$key]['Null'] == 'YES') {
-								$update .= "`".$key."` = NULL, ";
-							} else {
-								$update .= "`".$key."` = '".$this->EscapePost($value)."', ";
-							}
+					if (isset($this->FieldDetails[$key])) {
+						$e = explode('(', $this->FieldDetails[$key]['Type']);
+						switch ($e[0]){
+							case 'int':
+								$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+								break;
+							case 'tinyint':
+								$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+								break;
+							case 'smallint':
+								$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+								break;
+							case 'mediumint':
+								$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+								break;
+							case 'bigint':
+								$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+								break;
+							case 'bool':
+								$update .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+								break;
+							case 'double':
+								$update .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
+								break;
+							case 'float':
+								$update .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
+								break;
+							case 'decimal':
+								$update .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
+								break;
+							default:
+								$x = mb_strlen(strval($value));
+								if($x == 0 AND $this->FieldDetails[$key]['Null'] == 'YES') {
+									$update .= "`".$key."` = NULL, ";
+								} else {
+									$update .= "`".$key."` = '".$this->EscapePost($value)."', ";
+								}
+						}
 					}
  				}
      			$date = date("Y-m-d H:i:s");
@@ -1174,37 +1179,43 @@ class mysql_PDO {
  			unset($this->field[$this->identifier]);
  		$insert = "";
  		foreach($this->field as $key => $value) {
-			$e = explode('(', $this->FieldDetails[$key]['Type']);
-			switch ($e[0]){
-  				case 'int':
-					$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-					break;
-  				case 'tinyint':
-					$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-					break;
-  				case 'smallint':
-					$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-					break;
-  				case 'mediumint':
-					$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-					break;
-  				case 'bigint':
-					$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-					break;
-  				case 'bool':
-					$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
-					break;
-  				case 'double':
-					$insert .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
-					break;
-  				case 'float':
-					$insert .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
-					break;
-  				case 'decimal':
-					$insert .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
-					break;
-				default:
-					$insert .= "`".$key."` = '".$this->EscapePost($value)."', ";
+			if (isset($this->FieldDetails[$key]['Type'])) {
+				$e = explode('(', $this->FieldDetails[$key]['Type']);
+				if (! empty($e[0])) {
+					switch ($e[0]){
+						case 'int':
+							$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+							break;
+						case 'tinyint':
+							$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+							break;
+						case 'smallint':
+							$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+							break;
+						case 'mediumint':
+							$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+							break;
+						case 'bigint':
+							$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+							break;
+						case 'bool':
+							$insert .= "`".$key."` = ".intval($this->EscapePost($value)).", ";
+							break;
+						case 'double':
+							$insert .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
+							break;
+						case 'float':
+							$insert .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
+							break;
+						case 'decimal':
+							$insert .= "`".$key."` = ".floatval($this->EscapePost($value)).", ";
+							break;
+						default:
+							$insert .= "`".$key."` = '".$this->EscapePost($value)."', ";
+					}
+				}
+			} else {
+				unset($this->field[$key]);
 			}
  		}
  		$date = date("Y-m-d H:i:s");
@@ -1568,7 +1579,10 @@ class mysql_PDO {
 	 	while ($this->thisrow < $this->lastrow) {
 	   		$tbl[] = $this->RetrieveRow(true);
 	 	}
+		require_once LIBRARY_PATH.'class.cron.php';
+		$cron = new CronManager();
 	 	foreach($tbl as $q=>$w) {
+			$cron->RecordCronLog('PurgeChanges Table '.$w['TableName'].' started.');
 	   		// echo "Working on ".$w['TableName'];
 	   		switch ($w['multiplier']) {
 		 		case 'Nil':
@@ -1614,6 +1628,7 @@ class mysql_PDO {
 	       			}
 		   			break;
 	   		}
+			$cron->RecordCronLog('PurgeChanges Table '.$w['TableName'].' completed.');
 	 	}
 		//Erase Log Files...
 		$keep = 2;  //Number of days to keep the files.
@@ -1779,4 +1794,17 @@ class mysql_PDO {
 		return ;
 	}
 } 
+/**
+  * Kill SQL Object
+  *
+  * @since 3rd October 2011
+  * @version 3rd October 2011
+  * @param object SQL 
+  * @return void
+  */
+function KillSQL($sql){
+
+	$sql = NULL;
+	return ;
+}
 ?>
