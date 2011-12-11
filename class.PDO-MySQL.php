@@ -3,9 +3,9 @@
   * MySQL Class File
   * @package craig
   *
-  * @version 3rd October 2011
-  * @copyright Craig Rayner 2009-2009<br />
-  *  Information Record Sysem for Registered Training Organisation: Australia.<br />
+  * @version 11th December 2011
+  * @copyright Craig Rayner 2009-2011<br />
+  *  Vocational Education Record Sysem for Registered Training Organisation: Australia.<br />
   *  Copyright (C) 2004-2011  Craig A. Rayner<br />
   *  <br />
   *  This program is free software: you can redistribute it and/or modify<br />
@@ -29,7 +29,7 @@
   * @since 26th June 2009
   * @package craig
   *
-  * @version 31st August 2011
+  * @version 11th December 2011
   *
     Information Record Sysem for Registered Training Organisation: Australia.
     Copyright (C) 2004-2011  Craig A. Rayner
@@ -53,7 +53,7 @@ class mysql_PDO {
   * @access public
   * @var string
   */
-	var $version = '31st August 2011';
+	var $version = '11th December 2011';
 /**
   * Data Base Name
   * @access public
@@ -1791,6 +1791,28 @@ class mysql_PDO {
 				}
 			}
 		}
+		return ;
+	}
+/**
+  * Set Identifier Name
+  *
+  * @version 11th December 2011
+  * @since 11th December 2011
+  * @return void
+  */
+  	function SetIdentifierName(){
+	
+		$this->LogCall("SetIdentifierName()");
+		$this->OpenDataBase();
+		$query = "SELECT `k`.`column_name`
+			FROM `information_schema`.`table_constraints` AS `t`
+			JOIN `information_schema`.`key_column_usage` AS `k`
+			USING(`constraint_name`, `table_schema`, `table_name`)
+			WHERE `t`.`constraint_type` = 'PRIMARY KEY'
+				AND `t`.`table_schema` = '".$this->DataBaseName."'
+				AND `t`.`table_name` = '".$this->table."'";
+		$row = $this->InitiateQuery($query);
+		$this->identifier = $row['column_name'];
 		return ;
 	}
 } 
