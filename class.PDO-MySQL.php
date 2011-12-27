@@ -3,7 +3,7 @@
   * MySQL Class File
   * @package craig
   *
-  * @version 11th December 2011
+  * @version 27th December 2011
   * @copyright Craig Rayner 2009-2011<br />
   *  Vocational Education Record Sysem for Registered Training Organisation: Australia.<br />
   *  Copyright (C) 2004-2011  Craig A. Rayner<br />
@@ -29,7 +29,7 @@
   * @since 26th June 2009
   * @package craig
   *
-  * @version 11th December 2011
+  * @version 27th December 2011
   *
     Information Record Sysem for Registered Training Organisation: Australia.
     Copyright (C) 2004-2011  Craig A. Rayner
@@ -1813,6 +1813,21 @@ class mysql_PDO {
 				AND `t`.`table_name` = '".$this->table."'";
 		$row = $this->InitiateQuery($query);
 		$this->identifier = $row['column_name'];
+		return ;
+	}
+/**
+  * Flush Tables
+  *
+  * The FLUSH statement clears or reloads various internal caches used by MySQL.
+  * @version 27th December 2011
+  * @since 27th December 2011
+  * @return void
+  */
+	function FlushTables(){
+	
+		$this->LogCall('FlushTables()');
+		$query = 'FLUSH TABLES';
+		$this->ExecuteQuery($query);
 		return ;
 	}
 } 
