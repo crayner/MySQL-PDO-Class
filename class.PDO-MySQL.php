@@ -3,7 +3,7 @@
   * MySQL Class File
   * @package craig
   *
-  * @version 27th December 2011
+  * @version 29th January 2012
   * @copyright Craig Rayner 2009-2011<br />
   *  Vocational Education Record Sysem for Registered Training Organisation: Australia.<br />
   *  Copyright (C) 2004-2011  Craig A. Rayner<br />
@@ -29,7 +29,7 @@
   * @since 26th June 2009
   * @package craig
   *
-  * @version 27th December 2011
+  * @version 29th January 2012
   *
     Information Record Sysem for Registered Training Organisation: Australia.
     Copyright (C) 2004-2011  Craig A. Rayner
@@ -53,7 +53,7 @@ class mysql_PDO {
   * @access public
   * @var string
   */
-	var $version = '11th December 2011';
+	var $version = '29th January 2012';
 /**
   * Data Base Name
   * @access public
@@ -242,7 +242,7 @@ class mysql_PDO {
      			`querytype` enum('Update','Insert','Delete') NOT NULL default 'Update',
      			`user` varchar(50) NOT NULL default 'Unknown',
      		PRIMARY KEY  (id)
-     		) TYPE=MyISAM";
+     		) ";
    		$this->ExecuteQuery($this->query);
 		$this->DoNotLog[] = $this->query = "CREATE TABLE IF NOT EXISTS `".PRE_NAME."PurgeData` (
     			`id` INT( 11 ) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -255,7 +255,7 @@ class mysql_PDO {
     		UNIQUE (
     			`TableName`
     		)
-    		) ENGINE = MYISAM COMMENT = 'Holds data of Tables to Purge'";
+    		) COMMENT = 'Holds data of Tables to Purge'";
    		$this->ExecuteQuery($this->query);
    		if (! CRON_ON) 
      		$this->PurgeChanges();
@@ -832,7 +832,7 @@ class mysql_PDO {
   * only updates if field[identifier] != 0<br />
   * if field[identifier] != 0 and table.identifier == 0 then AN insert is done.
   * Will set a field as `RecordChange` = date(Y-m-d H:i:s)
-  * @version 17th February 2010
+  * @version 29th January 2012
   * @since 26th June 2009
   * @param string New table name, if not set used object table name
   * @param string New Identifier with the table name, or uses object idenetifier name.
@@ -844,6 +844,7 @@ class mysql_PDO {
  
 		$this->LogCall('SaveRecord($table = '.strval($table).', $identifier = '.strval($identifier).')');
 		$this->functionCalled = 'Save Record: ';
+		$result = NULL;
  		if ($table != "NO TABLE") 
 			$this->table = $table;
  		if ($identifier != 'Not Set') 
